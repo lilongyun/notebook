@@ -1,0 +1,33 @@
+
+1，泛型（它允许指定集合里元素的类型，这样你可以得到强类型在编译时刻进行类型检查的好处）
+　　 ArrayList list=new ArrayList()------>ArrayList<Integer>list=new ArrayList<Integer>();
+
+2，自动装箱/拆箱
+　　自动装包：基本类型自动转为包装类.(int >> Integer)
+　　自动拆包：包装类自动转为基本类型.(Integer >> int)
+　　nt i=list.get(0).parseInt();-------->int i=list.get(0);原始类型与对应的包装类不用显式转换
+
+3，for-each（循环清晰许多，并且避免了强制类型转换）
+
+　i=0;i<a.length;i++------------>for(int i:a){......}
+4，static import （ 静态导入：要使用用静态成员（方法和变量）我们必须给出提供这个方法的类。使用静态导入可以使被导入类的所有静态变量和静态方法在当前类直接可见，使用这些静态成员无需再给出他们的类名。）
+
+　　import static java.lang.Math.*;
+　　Math.sqrt();--------------->sqrt();
+
+5 变长参数
+　　int sum(int ...intlist)有任意个参数,把他看作数组
+
+6 枚举（Enums）
+　　然后可以这样来使用Color myColor = Color.Red.
+　　枚举类型还提供了两个有用的静态方法values()和valueOf(). 我们可以很方便地使用它们
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+
+1.spring1.0时代
+习惯用xml文件来配置,在xml文件来配置Bean,可以在xml文件中轻松的进行处理,但是在bena的数量越来越多的时候,xml的
+配置也就会越来越复杂,所以为了解决bean的配置越来越多的情况下减轻xml文件的处理.spring2.0就诞生了
+
+2.spring2.0时代
+在xml文件上做了一定的优化,让配置看起来越来越简单,但是并没语完全解决xml冗余的问题
+
+3.spring3.0时代;
+可以使用spring提供的java注解来取代曾经xml配置上的问题,似乎我们曾经忘记了发生什么,spring变得
+前所未有的简单,
+
+4.spring4.0时代;
+4.0 时代我们甚至连xml配置文件都不需要了完全使用java源码级别的配置与spring提供的注解就能快速的开发
+spring应用程序,但仍然无法改变Java Web应用程序的运行模式,我们仍然需要将war部署到Web Server 上，才能
+对外提供服务。能否运行一个简单的main()方法就能启动一个Web Server 呢？Spring Boot满足了我们的这种需求。
+
+
+spring4.0 主要提供了对WebSocket编程的支持,支持包括JSR-356--Java API for WebSocket
+鉴于WebSocket提供了仅仅提供了一种低层次的API,急需高层次的抽象，因此Spring4.0在WebSocket之上提供了一个高层次的面向消息的编程模型，
+该模型基于SockJS,并且包含了对STOMP协议的支持
+
+
+
+
+
+
+
+
+
+

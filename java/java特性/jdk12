@@ -1,0 +1,45 @@
+
+1，Switch Expressions
+这是一个为开发者准备的特性，我们可以利用具体代码快速了解一下，下面是传统 statement 形式的 switch 语法：
+
+复制代码
+switch (day) {
+　　case MONDAY:
+　　case FRIDAY:
+　　case SUNDAY:
+　　　　System.out.println(6);
+　　　　break;
+　　case TUESDAY:
+　　　　System.out.println(7);
+　　　　break;
+　　case THURSDAY:
+　　case SATURDAY:
+　　　　System.out.println(8);
+　　　　break;
+　　case WEDNESDAY:
+　　　　System.out.println(9);
+　　　　break;
+}
+复制代码
+如果有编码经验，你一定知道，switch 语句如果漏写了一个 break，那么逻辑往往就跑偏了，这种方式既繁琐，又容易出错。如果换成 switch 表达式，Pattern Matching 机制能够自然地保证只有单一路径会被执行，请看下面的代码示例：
+
+switch (day) {
+　　case MONDAY, FRIDAY, SUNDAY -> System.out.println(6);
+　　case TUESDAY -> System.out.println(7);
+　　case THURSDAY, SATURDAY -> System.out.println(8);
+　　case WEDNESDAY -> System.out.println(9);
+}
+ 
+
+更进一步，下面的表达式，为我们提供了优雅地表达特定场合计算逻辑的方式
+
+int numLetters = switch (day) {
+    case MONDAY, FRIDAY, SUNDAY -> 6;
+    case TUESDAY -> 7;
+    case THURSDAY, SATURDAY -> 8;
+    case WEDNESDAY -> 9;
+};
+Switch Expressions 或者说起相关的 Pattern Matching 特性，为我们提供了勾勒出了 Java 语法进化的一个趋势，将开发者从复杂繁琐的低层次抽象中逐渐解放出来，以更高层次更优雅的抽象，既降低代码量，又避免意外编程错误的出现，进而提高代码质量和开发效率。
+
+2，Shenandoah GC
+新增了一个名为 Shenandoah 的 GC 算法，通过与正在运行的 Java 线程同时进行 evacuation 工作来减少 GC 暂停时间。使用 Shenandoah 的暂停时间与堆大小无关，这意味着无论堆是 200 MB 还是 200 GB，都将具有相同的暂停时间。

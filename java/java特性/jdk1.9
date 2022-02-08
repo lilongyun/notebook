@@ -1,0 +1,23 @@
+
+1，集合加强
+jdk9为所有集合（List/Set/Map）都增加了of和copyOf方法，用来创建不可变集合，即一旦创建就无法再执行添加、删除、替换、排序等操作，否则将报java.lang.UnsupportedOperationException异常。一般在特定场景下用还是可以的，不过如果引用了guava库的话推荐还是使用guava把hhhh，例子如下：
+
+    List strs = List.of("Hello", "World");
+    List strsCopy = List. copyOf(strs);
+    Set strs = Set.of("Hello", "World");
+    Map maps = Map.of("Hello", 1, "World", 2);
+2，私有接口方法
+jdk8提供了接口的默认方法（default）和静态方法，打破了之前接口只能定义方法而不能存在行为。jdk9则是允许接口定义私有方法，私有方法可以作为通用方法放在默认方法中调用，不过实际中并无多大用处，至少对我来说。
+
+3，垃圾收集机制
+jdk9把G1作为默认的垃圾收集器实现，替换了jdk7和jdk8的默认垃圾收集器实现：Parallel Scavenge（新生代）+Parallel Old（老年代）。
+
+4，I/O流加强
+java.io.InputStream 中增加了新的方法来读取和复制 InputStream 中包含的数据：
+readAllBytes：读取 InputStream 中的所有剩余字节
+readNBytes： 从 InputStream 中读取指定数量的字节到数组中
+transferTo：读取 InputStream 中的全部字节并写入到指定的 OutputStream 中 
+
+5，JShell工具
+jdk9引入了jshell这个交互性工具，让Java也可以像脚本语言一样来运行，可以从控制台启动 jshell ，在 jshell 中直接输入表达式并查看其执行结果。当需要测试一个方法的运行效果，或是快速的对表达式进行求值时，jshell 都非常实用。举个例子：
+

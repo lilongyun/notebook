@@ -1,0 +1,95 @@
+
+1，对集合类的语言支持
+　　Java将包含对创建集合类的第一类语言支持。这意味着集合类的创建可以像Ruby和Perl那样了。
+　　原本需要这样：
+
+复制代码
+　List<String> list = new ArrayList<String>(); 
+　　list.add("item"); 
+　　String item = list.get(0); 
+　　Set<String> set = new HashSet<String>(); 
+　　set.add("item"); 
+　　Map<String, Integer> map = new HashMap<String, Integer>(); 
+　　map.put("key", 1); 
+　　int value = map.get("key"); 
+复制代码
+　　现在你可以这样：
+
+　List<String> list = ["item"]; 
+　　String item = list[0]; 
+　　Set<String> set = {"item"}; 
+　　Map<String, Integer> map = {"key" : 1}; 
+　　int value = map["key"]; 
+　　这些集合是不可变的。
+
+2，自动资源管理
+　　Java中某些资源是需要手动关闭的，如InputStream，Writes，Sockets，Sql classes等。这个新的语言特性允许try语句本身申请更多的资源，
+　　这些资源作用于try代码块，并自动关闭。
+　　这个：
+
+　BufferedReader br = new BufferedReader(new FileReader(path)); 
+　　try { 
+　　　　return br.readLine(); 
+　　} finally { 
+　　　　br.close(); 
+　　} 
+　　变成了这个：
+
+try (BufferedReader br = new BufferedReader(new FileReader(path)) { 
+　　　　return br.readLine(); 
+　　} 
+　　你可以定义关闭多个资源：
+
+　try ( 
+　　　　InputStream in = new FileInputStream(src); 
+　　　　OutputStream out = new FileOutputStream(dest)) 
+　　{ 
+　　　　// code 
+　　} 
+　　为了支持这个行为，所有可关闭的类将被修改为可以实现一个Closable（可关闭的）接口。
+
+3，增强的对通用实例创建（diamond）的类型推断
+　　类型推断是一个特殊的烦恼，下面的代码：
+
+　Map<String, List<String>> anagrams = new HashMap<String, List<String>>(); 
+　　通过类型推断后变成：
+
+　Map<String, List<String>> anagrams = new HashMap<>(); 
+　　这个<>被叫做diamond（钻石）运算符，这个运算符从引用的声明中推断类型。
+
+4，数字字面量下划线支持
+　　很长的数字可读性不好，在Java 7中可以使用下划线分隔长int以及long了，如：
+　　int one_million = 1_000_000;
+　　运算时先去除下划线，如：1_1 * 10 = 110，120 – 1_0 = 110
+
+5，switch中使用string
+　　以前你在switch中只能使用number或enum。现在你可以使用string了：
+
+复制代码
+　String s = ... 
+　　switch(s) { 
+　　　　case "quux": 
+　　　　　　processQuux(s); 
+　　　　　　// fall-through 
+　　　　case "foo": 
+　　　　case "bar": 
+　　　　　　processFooOrBar(s); 
+　　　　　　break; 
+　　　　case "baz": 
+　　　　　　processBaz(s); 
+　　　　　　// fall-through 
+　　　　default: 
+　　　　　　processDefault(s); 
+　　　　　　break; 
+　　}
+复制代码
+6，二进制字面量
+　　由于继承C语言，Java代码在传统上迫使程序员只能使用十进制，八进制或十六进制来表示数(numbers)。
+　　由于很少的域是以bit导向的，这种限制可能导致错误。你现在可以使用0b前缀创建二进制字面量：
+
+int binary = 0b1001_1001; 
+　　现在，你可以使用二进制字面量这种表示方式，并且使用非常简短的代码，可将二进制字符转换为数据类型，如在byte或short。
+
+byte aByte = (byte)0b001; 
+short aShort = (short)0b010;
+
