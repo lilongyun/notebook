@@ -1,0 +1,16 @@
+
+
+-- MySQL 返回指定长度的字符串
+SELECT LEFT(articleContent, 20) FROM article
+返回articleContent字段前20位数据
+
+
+
+
+
+
+
+
+
+
+

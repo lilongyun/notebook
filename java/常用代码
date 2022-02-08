@@ -1,0 +1,17 @@
+
+
+Java 判断字符串是否以什么开头
+String str = "admin";
+boolean b = str.startsWith("a");//true
+
+
+初始赋值一个字符集合
+List<String> list = Arrays.asList("aaa","fsa","ser","eere");
+
+
+
+
+
+
+
+
