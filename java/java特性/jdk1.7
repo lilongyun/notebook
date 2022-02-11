@@ -3,7 +3,7 @@
 　　Java将包含对创建集合类的第一类语言支持。这意味着集合类的创建可以像Ruby和Perl那样了。
 　　原本需要这样：
 
-复制代码
+
 　List<String> list = new ArrayList<String>(); 
 　　list.add("item"); 
 　　String item = list.get(0); 
@@ -12,7 +12,7 @@
 　　Map<String, Integer> map = new HashMap<String, Integer>(); 
 　　map.put("key", 1); 
 　　int value = map.get("key"); 
-复制代码
+
 　　现在你可以这样：
 
 　List<String> list = ["item"]; 
@@ -65,7 +65,7 @@ try (BufferedReader br = new BufferedReader(new FileReader(path)) {
 5，switch中使用string
 　　以前你在switch中只能使用number或enum。现在你可以使用string了：
 
-复制代码
+
 　String s = ... 
 　　switch(s) { 
 　　　　case "quux": 
@@ -82,7 +82,7 @@ try (BufferedReader br = new BufferedReader(new FileReader(path)) {
 　　　　　　processDefault(s); 
 　　　　　　break; 
 　　}
-复制代码
+
 6，二进制字面量
 　　由于继承C语言，Java代码在传统上迫使程序员只能使用十进制，八进制或十六进制来表示数(numbers)。
 　　由于很少的域是以bit导向的，这种限制可能导致错误。你现在可以使用0b前缀创建二进制字面量：

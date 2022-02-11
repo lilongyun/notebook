@@ -44,3 +44,4 @@ text block，文本块，是一个多行字符串文字，它避免了对大多�
 
 JDK13中包含的5个特性，能够改变开发者的编码风格的主要有Text Blocks和Switch Expressions两个新特性，但是这两个特性还处于预览阶段。
 而且，JDK13并不是LTS（长期支持）版本，如果你正在使用Java 8（LTS）或者Java 11（LTS），暂时可以不必升级到Java 13.
+
